@@ -21,8 +21,8 @@ while( $init == true );do
   fi
   if [ "$enter_app" == "$app1" ]; then
       echo "initilling editor"
-      editor_
-      init=true
+      
+      editor_init=true
   fi
     while( $editor_init == true );do
       echo $txt_definity_editor 
