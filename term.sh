@@ -1,7 +1,6 @@
 #!/bin/bash
 source config_system/database
-version="0.1" 
-app1="editor"
+version="0.5" 
 init=true
 editor_init=false
 name_of_file="edi"
@@ -14,6 +13,7 @@ while [ $init == true ];do
   #<distribution_parts>
   command_pt1=`echo $command | cut -d' ' -f1`
   command_pt2=`echo $command | cut -d' ' -f2`
+  command_pt3=`echo $command | cut -d' ' -f3`
   #<distribution_parts>
 
   #<reboot>
@@ -65,12 +65,20 @@ while [ $init == true ];do
   fi
   #<change_info>
 
-  #<app_store>
+  if [ "$command_pt1" == "down" ];then
+    if [ "$command_pt1" == "install" ];then
+      if [ "$command_pt1" == "editor"];then
+        app1="edito"
+      fi
+    fi
+  fi
+
+  #<enter_app>
   if [ "$command" == "apps" ];then
     echo app?
     echo $app1
     read enter_app
-  #<app_store>
+  #<enter_app>
   
   #<app1>
   if [ "$enter_app" == "$app1" ]; then
