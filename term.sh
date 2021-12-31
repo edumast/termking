@@ -9,7 +9,7 @@ echo "hello "$name
 while(init==true);do
   read command
   if [ $command == "update" ];then
-    cd uppate
+    cd update
     ./update_software
   fi
   if [ $command == "apps" ];then
