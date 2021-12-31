@@ -29,7 +29,7 @@ while( $init == true );do
       read txt_editor
       txt_editor=$txt_editor
       txt_definity_editor=$txt_definity_editor$txt_editor
-      if (txt_editor=="save");then
+      if [ $txt_editor == "save" ];then
         echo $txt_definity_editor
         echo $txt_definity_editor >> $name_of_file
       fi
