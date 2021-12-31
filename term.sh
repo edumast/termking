@@ -5,23 +5,26 @@ app1="editor"
 init=true
 editor_init=false
 name_of_file="edi"
+enter_app="0"
+command="0"
 echo "hello "$name
-while(init==true);do
+while( $init == true );do
   read command
-  if [ $command == "update" ];then
+  if [ $command == "update" ]; then
     cd update
     ./update_software
   fi
-  if [ $command == "apps" ];then
+  if [ $command == "apps" ]; then
     echo app?
     echo $app1
     read enter_app
   fi
   if [ "$enter_app" == "$app1" ]; then
       echo "initilling editor"
-      editor_init=true
+      editor_
+      init=true
   fi
-    while(editor_init==true);do
+    while( $editor_init == true );do
       echo $txt_definity_editor 
       read txt_editor
       txt_editor=$txt_editor
