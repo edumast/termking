@@ -1,13 +1,13 @@
 #!/bin/bash
 echo "continue?"
 read s_or_n_continue
-if [ s_or_n_continue == "y" ];then
-  directory="term"
-elif [ s_or_n_continue == "n" ];then
-  exit
-else
+if [ $s_or_n_continue == "dc" ];then
   echo "qual o diretorio atual?"
   read directory
+elif [ $s_or_n_continue == "n" ];then
+  exit
+else
+  directory="term"
 fi
 git clone https://github.com/edumast/termking
 mv ~/$directory/update/termking/* ~/$directory
