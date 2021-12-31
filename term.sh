@@ -1,35 +1,84 @@
 #!/bin/bash
-version="0.1"
-name="dev"
+source config_system/database
+version="0.1" 
 app1="editor"
 init=true
 editor_init=false
 name_of_file="edi"
 enter_app="0"
 command="o"
-echo "hello "$name
-while( $init == true );do
+echo "hello "$name_usr
+while [ $init == true ];do
   read command
-  if [ $command == "reboot" ];then
+
+  #<distribution_parts>
+  command_pt1=`echo $command | cut -d' ' -f1`
+  command_pt2=`echo $command | cut -d' ' -f2`
+  #<distribution_parts>
+
+  #<reboot>
+  if [ "$command" == "reboot" ];
+  then
     ./config_system/reboot.sh
   fi
-  if [ $command == "shutdown" ];then
+  #<reboot>
+
+  #<shutdown>
+  if [ $"command" == "shutdown" ];
+  then
     echo "turning off..."
     exit
   fi
+  #<shutdown>
+  
+  #<update>
   if [ "$command" == "update" ];then
     cd update
     ./update_software
   fi
+  #<update>
+
+  #<name>
+  if [ "$command_pt1" == "rename_usr_to" ];then
+    new_name=$command_pt2
+    sed -i "s/name_usr=.*#end/name_usr=$new_name #end/g" config_system/database 
+  fi
+  #<name>
+
+  #<see information>
+  if [ "$command_pt1" == "see_info" ];then
+    if [ "$command_pt2" == "age" ];then
+      echo $age_usr
+    fi
+  fi
+  #<see information>
+
+  #<change_info>
+  if [ "$command" == "change info" ];then
+    echo change what information?
+    read what_information
+    if [ "$what_information" == "age" ];then
+      echo "how old are you?"
+      read years_old
+      sed -i "s/age_usr=.*#end/age_usr=$years_old #end/g" config_system/database
+    fi
+  fi
+  #<change_info>
+
+  #<app_store>
   if [ "$command" == "apps" ];then
     echo app?
     echo $app1
     read enter_app
-  fi
+  #<app_store>
+  
+  #<app1>
   if [ "$enter_app" == "$app1" ]; then
       echo "initilling editor"
       cd softwares
       ./editor.py
+  fi
+  #<app1>
   fi
   done
 

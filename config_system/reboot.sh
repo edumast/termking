@@ -9,4 +9,4 @@ elif [ $s_or_n_reboot == "directory" || $s_or_n_reboot == "dc" ];then
    ~/$directory/term.sh
 else
   ~/term/term.sh
-fi
+
