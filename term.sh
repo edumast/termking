@@ -21,19 +21,8 @@ while( $init == true );do
   fi
   if [ "$enter_app" == "$app1" ]; then
       echo "initilling editor"
-      
-      editor_init=true
+      cd softwares
+      ./editor.py
   fi
-    while( $editor_init == true );do
-      echo $txt_definity_editor 
-      read txt_editor
-      txt_editor=$txt_editor
-      txt_definity_editor=$txt_definity_editor$txt_editor
-      if [ $txt_editor == "save" ];then
-        echo $txt_definity_editor
-        echo $txt_definity_editor >> $name_of_file
-      fi
-      
-    done
   done
 
