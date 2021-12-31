@@ -1,0 +1,4 @@
+#!/bin/bash
+git clone https://github.com/edumast/termking
+mv ~/term/update/termking/* ~/term
+rm -rf ~/term/update/termking
