@@ -1,6 +1,14 @@
 #!/bin/bash
-echo "qual o diretorio atual?"
-read directory
+echo "continue?"
+read s_or_n_continue
+if [ s_or_n_continue == "y" ];then
+  directory="term"
+elif [ s_or_n_continue == "n" ];then
+  exit
+else
+  echo "qual o diretorio atual?"
+  read directory
+fi
 git clone https://github.com/edumast/termking
 mv ~/$directory/update/termking/* ~/$directory
 rm -rf termking

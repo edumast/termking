@@ -6,15 +6,22 @@ init=true
 editor_init=false
 name_of_file="edi"
 enter_app="0"
-command="0"
+command="o"
 echo "hello "$name
 while( $init == true );do
   read command
-  if [ $command == "update" ]; then
+  if [ $command == "reboot" ];then
+    ./config_system/reboot.sh
+  fi
+  if [ $command == "shutdown" ];then
+    echo "turning off..."
+    exit
+  fi
+  if [ "$command" == "update" ];then
     cd update
     ./update_software
   fi
-  if [ $command == "apps" ]; then
+  if [ "$command" == "apps" ];then
     echo app?
     echo $app1
     read enter_app
