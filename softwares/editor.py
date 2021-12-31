@@ -2,15 +2,19 @@
 import os
 enter_in_app="editor"
 cod_definity_editor=""
-os.system("mkdir data/editor_py")
+select_file_option=input("1.create  2.enter")
+select_file=input("which file?")
+if (select_file_option=="1"):
+    os.system("touch data/editor_py/%s" %(select_file))
+file=("data/editor_py/")+(select_file)
 while(enter_in_app=="editor"):
     cod_definity_editor=cod_definity_editor
     cod_editor=input("")
     cod_editor=cod_editor
     if (cod_editor=="save"):
-        file=open("data/editor_py/py.txt", "a")
+        file=open(str(file), "a")
         file.write(cod_definity_editor)
-        file=open("data/editor_py/py.txt", "a")
+        file=open(str(file), "a")
         print("finaly")
         cod_editor=""
     if (cod_definity_editor==""):
