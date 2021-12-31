@@ -8,7 +8,11 @@ name_of_file="edi"
 echo "hello "$name
 while(init==true);do
   read command
-  if (command=="apps");then
+  if [ $command == "update" ];then
+    cd udpate
+    ./update_software
+  fi
+  if [ $command == "apps" ];then
     echo app?
     echo $app1
     read enter_app
@@ -20,7 +24,7 @@ while(init==true);do
     while(editor_init==true);do
       echo $txt_definity_editor 
       read txt_editor
-      txt_editor=-e $txt_editor
+      txt_editor=$txt_editor
       txt_definity_editor=$txt_definity_editor$txt_editor
       if (txt_editor=="save");then
         echo $txt_definity_editor
