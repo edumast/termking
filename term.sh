@@ -73,9 +73,9 @@ echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down
   #<down>
   if [ "$command_pt1" == "down" ];then
     if [ "$command_pt2" == "install" ];then
-      echo app$soft_number=$command_pt3 >> $local_directory/softwares/termking_soft/soft_database
-      soft_number_ant=$(soft_number+1)
-      sed -i "s/soft_number=.*#end/soft_number=$soft_number_ant #end/g" $local_directory/softwares/termking_soft/soft_database
+      echo app$soft_number=$command_pt3 >> ~/$local_directory/softwares/termking_soft/soft_database
+      soft_number_ant=$((soft_number+1))
+      sed -i "s/soft_number=.*#end/soft_number=$soft_number_ant #end/g" ~/$local_directory/softwares/termking_soft/soft_database
     fi
   fi
   #<down>
