@@ -1,15 +1,14 @@
 #!/bin/bash
 data_file="databased"
-source $data_file/database
-version="0.5" 
-init=true
+local_directory=`echo $PWD | rev | cut -d'/' -f 1 | rev`
+source ~/$local_directory"/"$data_file/database
+version="1.0" 
+init_system=true
 editor_init=false
-name_of_file="edi"
-enter_app="0"
-number_sequence_app=1
 echo "hello "$name_usr
-while [ $init == true ];do
-  source $data_file/database
+while [ $init_system == true ];do
+  source ~/$local_directory"/softwares/termking_soft/soft_database"
+  source ~/$local_directory"/"$data_file/database
   read command
 
   #<distribution_parts>
@@ -71,17 +70,27 @@ echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down
   fi
   #<change_info>
 
+  #<down>
   if [ "$command_pt1" == "down" ];then
     if [ "$command_pt2" == "install" ];then
-        sed -i "s/app1=.*#end/app1=$command_pt3 #end/g" $data_file/database
+      echo app$soft_number=$command_pt3 >> $local_directory/softwares/termking_soft/soft_database
+      soft_number_ant=$(soft_number+1)
+      sed -i "s/soft_number=.*#end/soft_number=$soft_number_ant #end/g" $local_directory/softwares/termking_soft/soft_database
     fi
   fi
+  #<down>
 
   #<enter_app>
-  if [ "$command" == "apps" ];then
+  if [ "$command_pt1" == "apps" ];then
+    if [ "$command_pt2" == "enter" ];then
+      enter_app=$command_pt3
+    else
     echo app?
+    echo ~×~
     echo $app1
+    echo ~×~
     read enter_app
+    fi
   #<enter_app>
   
   #<app1>

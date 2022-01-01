@@ -9,7 +9,7 @@ read age_first
 echo "pre install app on system?"|lolcat
 read pre_install_app
 if [ $pre_install_app == "y" ];then
-  echo "which?"
+  echo "which?" |lolcat
   read pre_yes_install
 fi
 

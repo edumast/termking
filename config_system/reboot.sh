@@ -7,5 +7,6 @@ elif [ $s_or_n_reboot == "dc" ];then
    read directory
    ~/$directory/term.sh
 else
-  ~/term/term.sh
+default=`echo $PWD | rev | cut -d'/' -f 1 | rev`
+  ~/$default"/term.sh"
 fi
