@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "hello welcome to kingterm system installer"
+echo "want to download the system in which directory?"
+read directory_download_system
+
