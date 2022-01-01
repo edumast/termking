@@ -1,5 +1,10 @@
 #!/bin/bash
-echo "hello welcome to kingterm system installer"
-echo "want to download the system in which directory?"
+echo "hello welcome to kingterm system installer" |lolcat
+echo "want to download the system in which directory?" |lolcat
 read directory_download_system
+figlet load...|lolcat
+git clone https://github.com/edumast/termking
+   mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
+   rm -rf termking
+   echo done |lolcat
 

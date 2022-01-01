@@ -1,6 +1,4 @@
 #!/bin/bash
-source installer_system
-if [ directory_download_system == " " ];then
 echo "continue?"
 read s_or_n_continue
 if [ $s_or_n_continue == "dc" ];then
@@ -10,10 +8,6 @@ elif [ $s_or_n_continue == "n" ];then
   exit
 else
   directory="term"
-fi
-fi
-if [ directory_download_system != " " ];then
-directory=$directory_download_system
 fi
 git clone https://github.com/edumast/termking
 mv ~/$directory/update/termking/* ~/$directory
