@@ -1,13 +1,15 @@
 #!/bin/bash
-source config_system/database
+data_file="databased"
+source $data_file/database
 version="0.5" 
 init=true
 editor_init=false
 name_of_file="edi"
 enter_app="0"
-command="o"
+number_sequence_app=1
 echo "hello "$name_usr
 while [ $init == true ];do
+  source $data_file/database
   read command
 
   #<distribution_parts>
@@ -24,7 +26,7 @@ while [ $init == true ];do
   #<reboot>
 
   #<shutdown>
-  if [ $"command" == "shutdown" ];
+  if [ "$command" == "shutdown" ];
   then
     echo "turning off..."
     exit
@@ -38,10 +40,14 @@ while [ $init == true ];do
   fi
   #<update>
 
-  #<name>
+  if [ "$command" == "commands" ];then
+echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down | apps"
+  fi
+ 
+ #<name>
   if [ "$command_pt1" == "rename_usr_to" ];then
     new_name=$command_pt2
-    sed -i "s/name_usr=.*#end/name_usr=$new_name #end/g" config_system/database 
+    sed -i "s/name_usr=.*#end/name_usr=$new_name #end/g" $data_file/database 
   fi
   #<name>
 
@@ -60,16 +66,14 @@ while [ $init == true ];do
     if [ "$what_information" == "age" ];then
       echo "how old are you?"
       read years_old
-      sed -i "s/age_usr=.*#end/age_usr=$years_old #end/g" config_system/database
+      sed -i "s/age_usr=.*#end/age_usr=$years_old #end/g" $data_file/database
     fi
   fi
   #<change_info>
 
   if [ "$command_pt1" == "down" ];then
-    if [ "$command_pt1" == "install" ];then
-      if [ "$command_pt1" == "editor"];then
-        app1="edito"
-      fi
+    if [ "$command_pt2" == "install" ];then
+        sed -i "s/app1=.*#end/app1=$command_pt3 #end/g" $data_file/database
     fi
   fi
 
