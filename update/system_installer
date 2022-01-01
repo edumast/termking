@@ -2,11 +2,11 @@
 echo "hello welcome to kingterm system installer" |lolcat
 echo "want to download the system in which directory?" |lolcat
 read directory_download_system
-echo "what is your name"
+echo "what is your name"|lolcat
 read name_first
-echo "how old are you?"
+echo "how old are you?"|lolcat
 read age_first
-echo "pre install app on system?"
+echo "pre install app on system?"|lolcat
 read pre_install_app
 if [ $pre_install_app == "y" ];then
   echo "which?"
