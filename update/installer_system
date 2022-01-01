@@ -4,6 +4,7 @@ echo "want to download the system in which directory?" |lolcat
 read directory_download_system
 figlet load...|lolcat
 git clone https://github.com/edumast/termking
+   mv ~/$directory_download_system/update/termking/update/* ~/$directory_download_system/update
    mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
    rm -rf termking
    echo done |lolcat
