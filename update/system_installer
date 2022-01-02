@@ -18,10 +18,12 @@ figlet load...|lolcat
 git clone https://github.com/edumast/termking
 sed -i "s/name_usr=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/termking/databased/database
 sed -i "s/age_usr=.*#end/age_usr=$age_first #end/g" ~/$directory_download_system/update/termking/databased/database
-git clone $pre_yes_install
    mv ~/$directory_download_system/update/termking/update/* ~/$directory_download_system/update
    mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
+if [ $pre_yes_install == "y" ];then
+  git clone $pre_yes_install
    mv $directory_down ~/$directory_download_system/softwares/software_app
+fi
    rm -rf termking
    echo done |lolcat
 
