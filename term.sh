@@ -7,7 +7,7 @@ init_system=true
 editor_init=false
 cont_app=1
 app_number="m"
-echo "hello "$name_usr
+echo "welcome to termking_os "$name_usr
 while [ $init_system == true ];do
   #<source>
   source ~/$local_directory"/softwares/termking_soft/soft_database"
