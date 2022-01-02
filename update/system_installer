@@ -11,14 +11,15 @@ read pre_install_app
 if [ $pre_install_app == "y" ];then
   echo "which?" |lolcat
   read pre_yes_install
+   directory_down=`echo $pre_install_app | rev | cut -d'/' -f 1 | rev`
 fi
 
 figlet load...|lolcat
 git clone https://github.com/edumast/termking
 sed -i "s/name_usr=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/termking/databased/database
 sed -i "s/age_usr=.*#end/age_usr=$age_first #end/g" ~/$directory_download_system/update/termking/databased/database
-sed -i "s/app1=.*#end/app1=$pre_yes_install #end/g" ~/$directory_download_system/softwares/termking_soft/soft_database
-
+git clone $pre_yes_install
+mv $directory_down ~/$directory_download_system/softwares/software_app
    mv ~/$directory_download_system/update/termking/update/* ~/$directory_download_system/update
    mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
    rm -rf termking

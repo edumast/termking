@@ -9,10 +9,13 @@ cont_app=1
 app_number="m"
 echo "hello "$name_usr
 while [ $init_system == true ];do
+  #<source>
   source ~/$local_directory"/softwares/termking_soft/soft_database"
   source ~/$local_directory"/"$data_file/database
-  read command
+  #<source>
 
+  read command
+  
   #<distribution_parts>
   command_pt1=`echo $command | cut -d' ' -f1`
   command_pt2=`echo $command | cut -d' ' -f2`
@@ -87,7 +90,7 @@ echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down
   git clone $command_pt3
   directory_down=`echo $command_pt3 | rev | cut -d'/' -f 1 | rev`
   rm -rf $directory_down/README.md 
-mv $directory_down/$directory_down ~/$local_directory/softwares/software_app
+mv $directory_down ~/$local_directory/softwares/software_app
   chmod 755 ~/$local_directory/softwares/install_app/*
     fi
  fi
@@ -96,7 +99,8 @@ mv $directory_down/$directory_down ~/$local_directory/softwares/software_app
   #<enter_app>
   if [ "$command_pt1" == "apps" ];then
     if [ "$command_pt2" == "enter" ];then
-      enter_app=$command_pt3
+    enter_app=$command_pt3  
+     ~/$local_directory/softwares/software_app/$enter_app/init.sh
     else
     echo app?
     echo ~×~
