@@ -5,6 +5,8 @@ source ~/$local_directory"/"$data_file/database
 version="1.0" 
 init_system=true
 editor_init=false
+cont_app=1
+app_number="m"
 echo "hello "$name_usr
 while [ $init_system == true ];do
   source ~/$local_directory"/softwares/termking_soft/soft_database"
@@ -70,15 +72,26 @@ echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down
   fi
   #<change_info>
 
-  #<down>
-  if [ "$command_pt1" == "down" ];then
+  #<lok>
+  if [ "$command_pt1" == "lok" ];then
     if [ "$command_pt2" == "install" ];then
-      echo app$soft_number=$command_pt3 >> ~/$local_directory/softwares/termking_soft/soft_database
-      soft_number_ant=$((soft_number+1))
-      sed -i "s/soft_number=.*#end/soft_number=$soft_number_ant #end/g" ~/$local_directory/softwares/termking_soft/soft_database
+      chmod 755 ~/$local_directory/softwares/install_app/*
+      ~/$local_directory/softwares/install_app/install_$command_pt3
     fi
   fi
+  #<lok>
+
   #<down>
+ if [ "$command_pt1" == "down" ];then
+  if [ "$command_pt2" = "install" ];then
+  git clone $command_pt3
+  directory_down=`echo $command_pt3 | rev | cut -d'/' -f 1 | rev`
+  rm -rf $directory_down/README.md 
+mv $directory_down/$directory_down ~/$local_directory/softwares/software_app
+  chmod 755 ~/$local_directory/softwares/install_app/*
+    fi
+ fi
+   #<down>
 
   #<enter_app>
   if [ "$command_pt1" == "apps" ];then
@@ -87,19 +100,12 @@ echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down
     else
     echo app?
     echo ~×~
-    echo $app1
+    ls ~/$local_directory/softwares/software_app
     echo ~×~
     read enter_app
+    ~/$local_directory/softwares/software_app/$enter_app/init.sh
     fi
   #<enter_app>
-  
-  #<app1>
-  if [ "$enter_app" == "$app1" ]; then
-      echo "initilling editor"
-      cd softwares
-      ./editor.py
-  fi
-  #<app1>
   fi
   done
 
