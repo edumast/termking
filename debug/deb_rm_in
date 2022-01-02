@@ -1,4 +1,4 @@
-local=`echo $PWD | rev | cut -d'/' -f 2 | rev`
+local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 mkdir ~/backup_rm_deb
 cp -r ~/$local/update ~/backup_rm_deb
 cp -r ~/$local/debug ~/backup_rm_deb

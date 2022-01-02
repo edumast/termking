@@ -7,7 +7,7 @@ init_system=true
 editor_init=false
 cont_app=1
 app_number="m"
-echo "welcome to termking_os "$name_usr
+echo "hello "$name_usr
 while [ $init_system == true ];do
   #<source>
   source ~/$local_directory"/softwares/termking_soft/soft_database"
@@ -37,21 +37,12 @@ while [ $init_system == true ];do
   fi
   #<shutdown>
   
-  if [ "$command" == "format" ];then
-./debug/deb_rm_in
-  fi
-
   #<update>
   if [ "$command" == "update" ];then
     cd update
     ./update_software
   fi
   #<update>
-
-if [ $command == "format" ];then
-./debug/deb_rm_in
-fi
-
 
   if [ "$command" == "commands" ];then
 echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down | apps"

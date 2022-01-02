@@ -2,4 +2,3 @@ echo local?
 read local
 mv ~/backup_rm_deb/* ~/$local
 rm -rf ~/backup_rm_deb
-rm -rf ~/$local/deb_rm_util
