@@ -30,7 +30,8 @@ while [ $init_system == true ];do
   #<reboot>
 
 if [ "$command" == "format" ];then
-./debug/deb_rm_in
+command="nonpakljb"
+  ./debug/deb_rm_in
 fi
 
   #<shutdown>
