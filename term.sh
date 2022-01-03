@@ -7,7 +7,7 @@ init_system=true
 editor_init=false
 cont_app=1
 app_number="m"
-echo "hello "$name_usr
+echo "welcome to termking_os "$name_usr
 while [ $init_system == true ];do
   #<source>
   source ~/$local_directory"/softwares/termking_soft/soft_database"
@@ -29,11 +29,6 @@ while [ $init_system == true ];do
   fi
   #<reboot>
 
-if [ "$command" == "format" ];then
-command="nonpakljb"
-  ./debug/deb_rm_in
-fi
-
   #<shutdown>
   if [ "$command" == "shutdown" ];
   then
@@ -42,6 +37,12 @@ fi
   fi
   #<shutdown>
   
+  #<mep>
+  if [ "$command_pt1" == "mep" ];then
+du -sh softwares/software_app/$command_pt2
+  fi
+  #<mep>
+
   #<update>
   if [ "$command" == "update" ];then
     cd update
@@ -49,9 +50,18 @@ fi
   fi
   #<update>
 
-  if [ "$command" == "commands" ];then
-echo "reboot | shutdown | update | rename_usr_to | see_info | change info | down | apps"
+  #<format>
+if [ "$command" == "format" ];then
+./debug/deb_rm_in
+fi
+  #<format>
+
+#<commands>
+  if [ "$command" == "comman" ];then
+echo "reboot | shutdown | update | rename_usr_to | see_info | change info
+| down | app | mep | format |comman "
   fi
+#<commands>
  
  #<name>
   if [ "$command_pt1" == "rename_usr_to" ];then
