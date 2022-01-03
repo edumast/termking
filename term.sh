@@ -29,6 +29,10 @@ while [ $init_system == true ];do
   fi
   #<reboot>
 
+if [ "$command" == "format" ];then
+./debug/deb_rm_in
+fi
+
   #<shutdown>
   if [ "$command" == "shutdown" ];
   then
