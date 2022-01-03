@@ -59,7 +59,7 @@ fi
 #<commands>
   if [ "$command" == "comman" ];then
 echo "reboot | shutdown | update | rename_usr_to | see_info | change info
-| down | app | mep | format |comman "
+down | app | mep | format |comman "
   fi
 #<commands>
  
@@ -101,12 +101,11 @@ echo "reboot | shutdown | update | rename_usr_to | see_info | change info
 
   #<down>
  if [ "$command_pt1" == "down" ];then
-  if [ "$command_pt2" = "install" ];then
+  if [ "$command_pt2" == "install" ];then
   git clone $command_pt3
   directory_down=`echo $command_pt3 | rev | cut -d'/' -f 1 | rev`
   rm -rf $directory_down/README.md 
 mv $directory_down ~/$local_directory/softwares/software_app
-  chmod 755 ~/$local_directory/softwares/install_app/*
     fi
  fi
    #<down>
@@ -122,7 +121,11 @@ mv $directory_down ~/$local_directory/softwares/software_app
     ls ~/$local_directory/softwares/software_app
     echo ~×~
     read enter_app
+    if [ "$enter_app" != "" ];then
+      if [ -e ~/$local_directory/softwares/software_app/$enter_app/init.sh ];then
     ~/$local_directory/softwares/software_app/$enter_app/init.sh
+      fi
+      fi
     fi
   #<enter_app>
   fi
