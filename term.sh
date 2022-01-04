@@ -121,6 +121,10 @@ mv $directory_down ~/$local_directory/softwares/software_app
  fi
    #<down>
 
+if [ $command_pt1 == "rem" ];then
+rm -rf softwares/software_app/$command_pt2
+fi
+
   #<enter_app>
   if [ "$command_pt1" == "apps" ];then
     if [ "$command_pt2" == "enter" ];then
