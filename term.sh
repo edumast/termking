@@ -14,7 +14,9 @@ while [ $init_system == true ];do
   source ~/$local_directory"/"$data_file/database
   #<source>
 
+  #<command>
   read command
+  #<command>
   
   #<distribution_parts>
   command_pt1=`echo $command | cut -d' ' -f1`
@@ -39,8 +41,12 @@ while [ $init_system == true ];do
   
   #<mep>
   if [ "$command_pt1" == "mep" ];then
-du -sh softwares/software_app/$command_pt2
-  fi
+    if [ -e softwares/software_app/$command_pt2 ];then
+    du -sh softwares/software_app/$command_pt2
+  else
+    echo "arquivo não encontrado!(err! #1)"
+    fi
+fi
   #<mep>
 
   #<update>
@@ -55,6 +61,11 @@ if [ "$command" == "format" ];then
 ./debug/deb_rm_in
 fi
   #<format>
+
+  
+  if [ "$command_pt1" == "clin" ];then
+$command_pt2 $command_pt3
+  fi
 
 #<commands>
   if [ "$command" == "comman" ];then
@@ -124,6 +135,8 @@ mv $directory_down ~/$local_directory/softwares/software_app
     if [ "$enter_app" != "" ];then
       if [ -e ~/$local_directory/softwares/software_app/$enter_app/init.sh ];then
     ~/$local_directory/softwares/software_app/$enter_app/init.sh
+  else
+    echo "arquivo não encontrado!(err! #1)"
       fi
       fi
     fi
