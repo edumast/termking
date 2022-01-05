@@ -114,20 +114,22 @@ down | app | mep | format |comman "
 
   #<down>
  if [ "$command_pt1" == "down" ];then
-  if [ "$command_pt2" == "install" ];then
+  
+   if [ "$command_pt2" == "install" ];then
   git clone $command_pt3
   directory_down=`echo $command_pt3 | rev | cut -d'/' -f 1 | rev`
   rm -rf $directory_down/README.md 
 mv $directory_down ~/$local_directory/softwares/software_app
     fi
+
+       #<remove>
+    if [ "$command_pt2" == "rem" ];then
+    rm -rf softwares/software_app/$command_pt3
+    fi
+       #<remove>
+
  fi
    #<down>
-
-   #<remove>
-if [ "$command_pt1" == "rem" ];then
-rm -rf softwares/software_app/$command_pt2
-fi
-   #<remove>
 
   #<enter_app>
   if [ "$command_pt1" == "apps" ];then
