@@ -23,7 +23,7 @@ sed -i "s/age_usr=.*#end/age_usr=$age_first #end/g" ~/$directory_download_system
    mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
 if [ $pre_install_app == "y" ];then
   git clone $pre_yes_install
-   mv ~/$directory_download_system/$directory_down ~/$directory_download_system/softwares/software_app
+   mv ~/$directory_download_system/update/$directory_down ~/$directory_download_system/softwares/software_app
 fi
    rm -rf termking
    echo done |lolcat
