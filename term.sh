@@ -7,7 +7,8 @@ init_system=true
 editor_init=false
 cont_app=1
 app_number="m"
-echo "welcome to termking_os "$name_usr
+python3 style/wlc.py
+tput setaf 2
 while [ $init_system == true ];do
   #<source>
   source ~/$local_directory"/softwares/termking_soft/soft_database"
@@ -44,7 +45,7 @@ while [ $init_system == true ];do
     if [ -e softwares/software_app/$command_pt2 ];then
     du -sh softwares/software_app/$command_pt2
   else
-    echo "arquivo não encontrado!(err! #1)"
+    err1=true
     fi
 fi
   #<mep>
@@ -75,9 +76,10 @@ down | app | mep | format |comman "
 #<commands>
  
  #<name>
-  if [ "$command_pt1" == "rename_usr_to" ];then
+  if [ "$command_pt1" == "rename_usr" ];then
     new_name=$command_pt2
     sed -i "s/name_usr=.*#end/name_usr=$new_name #end/g" $data_file/database 
+    sed -i "s/name=.*#end/name='$new_name' #end/g" style/wlc.py
   fi
   #<name>
 
@@ -121,9 +123,11 @@ mv $directory_down ~/$local_directory/softwares/software_app
  fi
    #<down>
 
-if [ $command_pt1 == "rem" ];then
+   #<remove>
+if [ "$command_pt1" == "rem" ];then
 rm -rf softwares/software_app/$command_pt2
 fi
+   #<remove>
 
   #<enter_app>
   if [ "$command_pt1" == "apps" ];then
@@ -140,11 +144,22 @@ fi
       if [ -e ~/$local_directory/softwares/software_app/$enter_app/init.sh ];then
     ~/$local_directory/softwares/software_app/$enter_app/init.sh
   else
-    echo "arquivo não encontrado!(err! #1)"
+    err1=true
       fi
       fi
     fi
   #<enter_app>
   fi
-  done
+
+  #<err1>
+  if [ "$err1" == true ];then
+    tput bold
+ tput setaf 1
+ echo "arquivo não encontrado!(err! #1)"
+ tput setaf 2
+ err1=false
+fi
+  #<err1>
+
+done
 
