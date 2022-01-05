@@ -59,7 +59,8 @@ fi
 
   #<format>
 if [ "$command" == "format" ];then
-./debug/deb_rm_in
+command=" "
+  ./debug/deb_rm_in
 fi
   #<format>
 
