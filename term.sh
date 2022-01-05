@@ -124,7 +124,7 @@ mv $directory_down ~/$local_directory/softwares/software_app
     fi
 
        #<remove>
-    if [ "$command_pt2" == "rem" ];then
+    if [ "$command_pt2" == "remove" ];then
     rm -rf softwares/software_app/$command_pt3
     fi
        #<remove>
@@ -141,6 +141,8 @@ mv $directory_down ~/$local_directory/softwares/software_app
     echo app?
     echo ~×~
     ls ~/$local_directory/softwares/software_app
+    tput setaf 2
+    tput bold
     echo ~×~
     read enter_app
     if [ "$enter_app" != "" ];then
