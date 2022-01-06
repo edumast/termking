@@ -9,15 +9,20 @@ cont_app=1
 app_number="m"
 python3 style/wlc.py
 tput setaf 2
+echo "##########################"
 while [ $init_system == true ];do
   #<source>
-  source ~/$local_directory"/softwares/termking_soft/soft_database"
   source ~/$local_directory"/"$data_file/database
   #<source>
 
   #<command>
-  read command
-  #<command>
+ timestamp=$(date +"%T")
+tput setaf 197
+tput bold
+ echo "$name_usr |" $timestamp "|termking"
+ tput setaf 2
+ read command
+ #<command>
   
   #<distribution_parts>
   command_pt1=`echo $command | cut -d' ' -f1`
@@ -71,21 +76,13 @@ $command_pt2 $command_pt3
 
 #<commands>
   if [ "$command" == "comman" ];then
-echo "reboot | shutdown | update | rename_usr_to | see_info | change info
+echo "reboot | shutdown | update | rename_usr | see_info | change info
 down | app | mep | format |comman "
   fi
 #<commands>
- 
- #<name>
-  if [ "$command_pt1" == "rename_usr" ];then
-    new_name=$command_pt2
-    sed -i "s/name_usr=.*#end/name_usr=$new_name #end/g" $data_file/database 
-    sed -i "s/name=.*#end/name='$new_name' #end/g" style/wlc.py
-  fi
-  #<name>
 
   #<see information>
-  if [ "$command_pt1" == "see_info" ];then
+  if [ "$command_pt1" == "info" ];then
     if [ "$command_pt2" == "age" ];then
       echo $age_usr
     fi
@@ -93,13 +90,16 @@ down | app | mep | format |comman "
   #<see information>
 
   #<change_info>
-  if [ "$command" == "change info" ];then
-    echo change what information?
-    read what_information
-    if [ "$what_information" == "age" ];then
-      echo "how old are you?"
-      read years_old
-      sed -i "s/age_usr=.*#end/age_usr=$years_old #end/g" $data_file/database
+  if [ "$command_pt1" == "change" ];then
+    #<name>
+      if [ "$command_pt2" == "name" ];then
+        sed -i "s/name_usr=.*#end/name_usr=$command_pt3 #end/g" $data_file/database
+        sed -i "s/name=.*#end/name='$command_pt3' #end/g" style/wlc.py
+      fi
+     #<name>
+
+    if [ "$command_pt2" == "age" ];then
+      sed -i "s/age_usr=.*#end/age_usr=$command_pt3 #end/g" $data_file/database
     fi
   fi
   #<change_info>
