@@ -2,6 +2,7 @@
 data_file=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source databased/database
 echo "checking system status!"
+sleep 1
 if [ -z $name_usr ];then
 echo "name_usr:off"
 echo "system error!!!"
@@ -11,6 +12,7 @@ echo "fixed error!"
 else
 echo "name_status:ok"
 fi
+sleep 1
 if [ -z $age_usr ];then
   echo "age_usr:off"
   echo "system error!!!"
@@ -20,6 +22,7 @@ else
 echo "age_usr:ok"
 fi
 err2=false
+sleep 1
 if [[ -e style && config_system ]];then
 if [ -e debug ];then 
   if [[ -e bios_init.sh && databased ]];then
