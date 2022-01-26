@@ -1,4 +1,0 @@
-echo local?
-read local
-mv ~/backup_rm_deb/* ~/$local
-rm -rf ~/backup_rm_deb ~/$local/deb_rm_util
