@@ -9,7 +9,11 @@ cont_app=1
 app_number="m"
 python3 style/wlc.py
 tput setaf 2
+<<<<<<< HEAD
 echo "##########################"
+=======
+echo "##########################" |lolcat
+>>>>>>> 3829972 (update)
 while [ $init_system == true ];do
   #<source>
   source ~/$local_directory"/"$data_file/database
@@ -19,7 +23,11 @@ while [ $init_system == true ];do
  timestamp=$(date +"%T")
 tput setaf 197
 tput bold
+<<<<<<< HEAD
  echo "$name_usr |" $timestamp "|termking"
+=======
+ echo "$name_usr |" $timestamp "|termking" 
+>>>>>>> 3829972 (update)
  tput setaf 2
  read command
  #<command>
@@ -76,7 +84,11 @@ $command_pt2 $command_pt3
 
 #<commands>
   if [ "$command" == "comman" ];then
+<<<<<<< HEAD
 echo "reboot | shutdown | update | rename_usr | see_info | change info
+=======
+echo "reboot | shutdown | update | rename_usr | info | change info
+>>>>>>> 3829972 (update)
 down | app | mep | format |comman "
   fi
 #<commands>
@@ -107,8 +119,12 @@ down | app | mep | format |comman "
   #<lok>
   if [ "$command_pt1" == "lok" ];then
     if [ "$command_pt2" == "install" ];then
+<<<<<<< HEAD
       chmod 755 ~/$local_directory/softwares/install_app/*
       ~/$local_directory/softwares/install_app/install_$command_pt3
+=======
+      ~/$local_directory/softwares/adl/$command_pt3
+>>>>>>> 3829972 (update)
     fi
   fi
   #<lok>

@@ -1,0 +1,7 @@
+local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
+mkdir ~/backup_rm_deb
+cp -r ~/$local/update ~/backup_rm_deb
+cp -r ~/$local/debug ~/backup_rm_deb
+cp -r ~/$local/debug/deb_rm_util ~/backup_rm_deb
+rm -rf ~/$local/*
+~/backup_rm_deb/deb_rm_util
