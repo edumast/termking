@@ -74,7 +74,7 @@ $command_pt2 $command_pt3
 
 #<commands>
   if [ "$command" == "comman" ];then
-echo "reboot | shutdown | update | rename_usr | info | change infodown | app | mep | format |comman "
+echo "reboot | shutdown | update | rename_usr | info | change info | down | app | mep | format |comman "
   fi
 #<commands>
 
