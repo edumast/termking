@@ -20,10 +20,10 @@ else
 echo "age_usr:ok"
 fi
 err2=false
-if [[ -d style && config_system ]];then
-if [ -d debug ];then 
-  if [[ -d bios_init.sh && databased ]];then
-    if [[ -d softwares && update ]];then
+if [[ -e style && config_system ]];then
+if [ -e debug ];then 
+  if [[ -e bios_init.sh && databased ]];then
+    if [[ -e softwares && update ]];then
       if [ -e term.sh ];then
 echo "system files:ok"
       err2=true
