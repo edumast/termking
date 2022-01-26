@@ -42,6 +42,8 @@ tput bold
   then
     echo "turning off..."
     exit
+ sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" $data_file/
+  
   fi
   #<shutdown>
   
