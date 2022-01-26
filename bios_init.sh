@@ -34,6 +34,9 @@ fi
 fi
 if [ $err2 == false ];then
 echo "system files:off"
+echo "system error!!!"
+echo "correcting error"
+./update/update_software
 fi
 echo "starting system"
 ./term.sh
