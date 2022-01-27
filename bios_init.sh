@@ -54,5 +54,5 @@ echo "fatal error!"
 echo "your system is broken!!!"
 echo "format your system!!!"
 else
- sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" $data_file/
+ sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" ~/$data_file/databased/database
 fi 
