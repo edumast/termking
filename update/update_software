@@ -1,5 +1,5 @@
 #!/bin/bash
-directory=`echo $PWD | rev | cut -d'/' -f 2 | rev`
+local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 echo "continue?"
 read s_or_n_continue
 if [ $s_or_n_continue == "dc" ];then
@@ -8,9 +8,8 @@ if [ $s_or_n_continue == "dc" ];then
 elif [ $s_or_n_continue == "n" ];then
   exit
 else
-  directory="term"
+  directory=$local
 fi
-git clone https://github.com/edumast/termking 
-mv ~/$directory/termking/* ~/$directory
-sleep 1
+git clone https://github.com/edumast/termking
+mv ~/$directory/update/termking/* ~/$directory
 rm -rf termking
