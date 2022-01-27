@@ -47,12 +47,14 @@ echo "system error!!!"
 echo "correcting error"
 ./update/update_software
 fi
+
 echo "starting system"
 ./term.sh
-if [ "$fatal_mensagem" == true ];then
-echo "fatal error!"
+source databased/database
+if [ "$fatal_mensagem" == false ];then
+   sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" ~/$data_file/databased/database
+elif [ "$fatal_mensagem" == true ];then
+  echo "fatal error!"
 echo "your system is broken!!!"
 echo "format your system!!!"
-else
- sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" ~/$data_file/databased/database
-fi 
+fi

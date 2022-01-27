@@ -37,13 +37,17 @@ tput bold
   fi
   #<reboot>
   
+if [ "$command" == "exit" ];then
+exit
+fi
+
   #<shutdown>
   if [ "$command" == "shutdown" ];
   then
     echo "turning off..."
-    exit
- sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" $data_file/
-  
+ sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" ~/$local_directory/databased/database
+sleep 1
+  exit
   fi
   #<shutdown>
   
