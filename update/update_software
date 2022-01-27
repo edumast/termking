@@ -12,5 +12,5 @@ else
 fi
 git clone https://github.com/edumast/termking 
 mv ~/$directory/termking/* ~/$directory
-sleep 2
+sleep 1
 rm -rf termking
