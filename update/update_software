@@ -1,5 +1,5 @@
 #!/bin/bash
-local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
+local=`echo $PWD | rev | cut -d'/' -f 2 | rev`
 echo "continue?"
 read s_or_n_continue
 if [ $s_or_n_continue == "dc" ];then
