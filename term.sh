@@ -117,13 +117,21 @@ echo "reboot | shutdown | update | rename_usr | info | change info | down | app 
   #<lok>
 
 #<down>
+repo="oficial"
  if [ "$command_pt1" == "down" ];then
    if [ "$command_pt2" == "install" ];then
-  git clone $command_pt3
+  if [ $repo == "oficial" ];then
+   git clone github.com/edumast/$command_pt3
+   rm -rf command_pt3/README.md
+   mv $command_pt3 ~/$local_directory/softwares/software_app
+  else
+     git clone $command_pt3
   directory_down=`echo $command_pt3 | rev | cut -d'/' -f 1 | rev`
   rm -rf $directory_down/README.md
 mv $directory_down ~/$local_directory/softwares/software_app
    fi
+   fi
+ fi
 
 #<remove>
     if [ "$command_pt2" == "remove" ];then
@@ -131,7 +139,7 @@ mv $directory_down ~/$local_directory/softwares/software_app
     fi
 
 #<remove>
- fi
+
    #<down>
  
 #<enter_app>
