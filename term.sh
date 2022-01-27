@@ -98,7 +98,7 @@ echo $name_usr
 
 #<change_info>
    
- if [ $command_pt1 == "change" ];then
+ if [ "$command_pt1" == "change" ];then
    
    #<name> 
     if [ "$command_pt2" == "name" ];then
