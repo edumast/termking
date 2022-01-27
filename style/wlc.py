@@ -1,6 +1,6 @@
 import os,sys,time,random
 print("")
-name='sudo_dev' #end
+name='usr' #end
 os.system("tput setaf 1")
 color=["\033[1;31m","\033[1;32m"]
 m = ("welcome to termking_os %s \n" %(name)) 

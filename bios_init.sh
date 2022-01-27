@@ -23,15 +23,21 @@ echo "age_usr:ok"
 fi
 err2=false
 sleep 1
-if [[ -e style && config_system ]];then
+if [ -e style ];then
+  if [ -e config_system ];then
 if [ -e debug ];then 
-  if [[ -e bios_init.sh && databased ]];then
-    if [[ -e softwares && update ]];then
+  if [ -e bios_init.sh ];then
+    if [ -e databased ];then
+    if [ -e softwares ];then 
+      if [ -e update ];then
       if [ -e term.sh ];then
 echo "system files:ok"
       err2=true
     fi
   fi
+fi
+fi
+fi
 fi
 fi
 fi
