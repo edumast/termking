@@ -77,7 +77,7 @@ $clin_command
 
 #<commands>
   if [ "$command" == "comman" ];then
-echo "reboot | shutdown | update | rename_usr | info | change info | down | app | mep | format |comman "
+echo "reboot | shutdown | update | info | change info | down | app | mep | format |comman "
   fi
 #<commands>
 
@@ -85,6 +85,9 @@ echo "reboot | shutdown | update | rename_usr | info | change info | down | app 
   if [ "$command_pt1" == "info" ];then
     if [ "$command_pt2" == "age" ];then
       echo $age_usr
+    fi
+    if [ "$command_pt2" == "name" ];then
+echo $name_usr
     fi
   fi
   #<see information>
