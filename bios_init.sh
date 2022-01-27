@@ -43,9 +43,8 @@ echo "correcting error"
 fi
 echo "starting system"
 ./term.sh
-if [ "$fatal_mensagem" == true ];then
+if [ $fatal_mensagem == true ];then
 echo "fatal error!"
 else
- sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" ~/$data_file/databased/database
-
+ sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" $data_file/
 fi 

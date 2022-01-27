@@ -71,7 +71,8 @@ command=" "
 fi
   #<format>
   if [ "$command_pt1" == "clin" ];then
-$command_pt2 $command_pt3
+    clin_command=`echo ${command:5}`
+$clin_command
   fi
 
 #<commands>
