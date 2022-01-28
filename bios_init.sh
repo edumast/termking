@@ -72,4 +72,8 @@ elif [ "$fatal_mensagem" == true ];then
   echo "fatal error!"
 echo "your system is broken!!!"
 echo "format your system!!!"
+echo Do you want to format the system? [y/n]
+read format
+if [ "$format" == "y" ];then
+./update/update_software
 fi

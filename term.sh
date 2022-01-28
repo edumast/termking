@@ -1,11 +1,10 @@
 #!/bin/bash
 data_file="databased"
 local_directory=`echo $PWD | rev | cut -d'/' -f 1 | rev`
-source ~/$local_directory"/"$data_file/database
-version="1.0"
-init_system=true
-python3 style/wlc.py
-tput setaf 2
+source ~local_directory"/"$data_file/database
+version="1
+init_system=tru
+python3 style/wlc.pytput setaf 2
 echo "##########################" |lolcat
 while [ $init_system == true ];do
   #<source>
