@@ -30,7 +30,8 @@ tput bold
   #<reboot>
   if [ "$command" == "reboot" ];
   then
-    ./config_system/reboot.sh
+    clear
+    ./term.sh
   fi
   #<reboot>
   
