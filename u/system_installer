@@ -1,0 +1,30 @@
+#!/bin/bash
+echo "hello welcome to kingterm system installer" |lolcat
+echo "want to download the system in which directory?" |lolcat
+read directory_download_system
+echo "what is your name"|lolcat
+read name_first
+echo "how old are you?"|lolcat
+read age_first
+echo "pre install app on system?"|lolcat
+read pre_install_app
+if [ $pre_install_app == "y" ];then
+  echo "which?" |lolcat
+  read pre_yes_install
+   directory_down=`echo $pre_yes_install | rev | cut -d'/' -f 1 | rev`
+fi
+
+figlet load...|lolcat
+git clone https://github.com/edumast/termking
+sed -i "s/name_usr=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/termking/databased/database
+sed -i "s/name=.*#end/name='$new_first' #end/g" style/wlc.py
+sed -i "s/age_usr=.*#end/age_usr=$age_first #end/g" ~/$directory_download_system/update/termking/databased/database
+   mv ~/$directory_download_system/update/termking/update/* ~/$directory_download_system/update
+   mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
+if [ $pre_install_app == "y" ];then
+  git clone $pre_yes_install
+   mv ~/$directory_download_system/update/$directory_down ~/$directory_download_system/softwares/software_app
+fi
+   rm -rf termking
+   echo done |lolcat
+

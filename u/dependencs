@@ -1,0 +1,19 @@
+#!/bin/bash
+local=`echo $PWD | rev | cut -d'/' -f 2 | rev`
+echo "Continue?"
+read what
+if [ $what == "y" ];then
+
+
+apt install python3
+apt install ruby
+apt install python
+apt install lynx
+wget https://github.com/busyloop/lolcat/archive/master.zip
+ unzip master.zip
+ cd lolcat-master/bin
+ gem install lolcat
+ rm -rf ~/$local/update/lolcat-master
+ rm -rf ~/$local/update/master.zip
+
+fi

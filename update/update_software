@@ -1,15 +1,6 @@
 #!/bin/bash
 local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
-echo "continue?"
-read s_or_n_continue
-if [ $s_or_n_continue == "dc" ];then
-  echo "qual o diretorio atual?"
-  read directory
-elif [ $s_or_n_continue == "n" ];then
-  exit
-else
-  directory=$local
-fi
+directory=$local
 git clone https://github.com/edumast/termking
 mv ~/$directory/termking/* ~/$directory
 rm -rf termking
