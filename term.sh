@@ -2,8 +2,11 @@
 data_file="databased"
 local_directory=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source ~/$local_directory"/"$data_file/database
-version="1"
+version="1.0"
 init_system=true
+editor_init=false
+cont_app=1
+app_number="m"
 python3 style/wlc.py
 tput setaf 2
 echo "##########################" |lolcat
@@ -30,20 +33,16 @@ tput bold
   #<reboot>
   if [ "$command" == "reboot" ];
   then
-    clear
-    ./term.sh
+    ./config_system/reboot.sh
   fi
   #<reboot>
   
-if [ "$command" == "exit" ];then
-exit
-fi
-
   #<shutdown>
   if [ "$command" == "shutdown" ];
   then
     echo "turning off..."
- sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" ~/$local_directory/databased/database
+    
+ sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" ~/$data_file/databased/database
   exit
   fi
   #<shutdown>
@@ -60,7 +59,8 @@ fi
   
   #<update>
   if [ "$command" == "update" ];then
-    ./update/update_software
+    cd update
+    ./update_software
   fi
   #<update>
   
@@ -77,8 +77,7 @@ $clin_command
 
 #<commands>
   if [ "$command" == "comman" ];then
-echo "reboot | shutdown | update | info | change info | down | app | mep | format |comman | lok | "
-echo "clin | exit "
+echo "reboot | shutdown | update | info | change info | down | app | mep | format |comman "
   fi
 #<commands>
 
@@ -95,7 +94,7 @@ echo $name_usr
 
 #<change_info>
    
- if [ "$command_pt1" == "change" ];then
+ if [ $command_pt1 == "change" ];then
    
    #<name> 
     if [ "$command_pt2" == "name" ];then
@@ -113,9 +112,9 @@ echo $name_usr
 #<lok>
   if [ "$command_pt1" == "lok" ];then
       if [ "$command_pt2" == "install" ];then
-      chmod 755 ~/$local_directory/softwares/adl/*
-      cp -r ~/$local_directory/softwares/adl/$command_pt3 softwares/software_app
-      
+      chmod 755 ~/$local_directory/softwares/install_app/*
+      ~/$local_directory/softwares/install_app/install_$command_pt3
+      ~/$local_directory/softwares/adl/$command_pt3
    fi
   fi
   #<lok>
@@ -169,11 +168,10 @@ mv $directory_down ~/$local_directory/softwares/software_app
     fi
   #<enter_app>
   fi
-  #<err1>
-
-  if [ "$command" == "corr!" ];then
+if [ "$command" == "corr!" ];then
 ./debug/corron.sh
-  fi
+fi
+#<err1>
 
   if [ "$err1" == true ];then
     tput bold
