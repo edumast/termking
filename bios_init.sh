@@ -77,3 +77,4 @@ read format
 if [ "$format" == "y" ];then
 ./update/update_software
 fi
+fi
