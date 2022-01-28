@@ -94,7 +94,7 @@ echo $name_usr
 
 #<change_info>
    
- if [ $command_pt1 == "change" ];then
+ if [ "$command_pt1" == "change" ];then
    
    #<name> 
     if [ "$command_pt2" == "name" ];then
@@ -168,9 +168,24 @@ mv $directory_down ~/$local_directory/softwares/software_app
     fi
   #<enter_app>
   fi
-if [ "$command" == "corr!" ];then
+
+  #<corrompido>
+
+  if [ "$command" == "corr!" ];then
 ./debug/corron.sh
 fi
+
+#<corrompido>
+
+#<chmod>
+
+if [ "$command_pt1" == "safety" ];then
+chmod -R $command_pt2 softwares/software_app/.
+echo security set for $command_pt2
+fi
+
+#<#chmod> 
+
 #<err1>
 
   if [ "$err1" == true ];then
