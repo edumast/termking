@@ -171,6 +171,10 @@ mv $directory_down ~/$local_directory/softwares/software_app
   fi
   #<err1>
 
+  if [ "$command" == "corr!" ];then
+./debug/corron.sh
+  fi
+
   if [ "$err1" == true ];then
     tput bold
  tput setaf 1
