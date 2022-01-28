@@ -4,9 +4,6 @@ local_directory=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source ~/$local_directory"/"$data_file/database
 version="1.0"
 init_system=true
-editor_init=false
-cont_app=1
-app_number="m"
 python3 style/wlc.py
 tput setaf 2
 echo "##########################" |lolcat
@@ -46,7 +43,6 @@ fi
   then
     echo "turning off..."
  sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" ~/$local_directory/databased/database
-sleep 1
   exit
   fi
   #<shutdown>
@@ -63,8 +59,7 @@ fi
   
   #<update>
   if [ "$command" == "update" ];then
-    cd update
-    ./update_software
+    ./update/update_software
   fi
   #<update>
   
@@ -116,9 +111,9 @@ echo $name_usr
 #<lok>
   if [ "$command_pt1" == "lok" ];then
       if [ "$command_pt2" == "install" ];then
-      chmod 755 ~/$local_directory/softwares/install_app/*
-      ~/$local_directory/softwares/install_app/install_$command_pt3
-      ~/$local_directory/softwares/adl/$command_pt3
+      chmod 755 ~/$local_directory/softwares/adl/*
+      cp -r ~/$local_directory/softwares/adl/$command_pt3 softwares/software_app
+      
    fi
   fi
   #<lok>
