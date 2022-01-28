@@ -3,6 +3,8 @@ data_file=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source databased/database
 echo "checking system status!"
 sleep 0.5
+sed -i "s/name=.*#end/name='$name_usr' #end/g" style/wlc.py
+
 if [ -z $name_usr ];then
 echo "name_usr:off"
 echo "system error!!!"
