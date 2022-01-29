@@ -180,7 +180,7 @@ fi
 #<chmod>
 
 if [ "$command_pt1" == "safety" ];then
-chmod -R $command_pt2 softwares/software_app/.
+chmod -R $command_pt2 softwares/software_app/*
 echo security set for $command_pt2
 fi
 
