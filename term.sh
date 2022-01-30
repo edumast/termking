@@ -92,7 +92,7 @@ echo "reboot | shutdown | update | info | change info | down | app | mep | forma
     if [ "$command" == "info" ];then
    tp_info="info"
       wh_tela=true
-  
+  command=" "
 
     fi
     if [ "$command_pt2" == "age" ];then
@@ -110,7 +110,8 @@ echo $name_usr
 if [ $command == "change" ];then 
 tp_info="change"
   wh_tela=true
- clear
+ command=" "
+  clear
 fi
    #<name> 
     if [ "$command_pt2" == "name" ];then
@@ -132,12 +133,14 @@ fi
   if [ "$tp_info" == "info" ];then
    echo -ne $info_blue_window=;eval echo '$'$info_blue_window
    wh_tela=false
+   tp_info=" "
   fi
  if [ "$tp_info" == "change" ];then
 echo diga o valor: |lolcat
    read change_resp
 sed -i "s/$info_blue_window=.*#end/$info_blue_window=$change_resp #end/g" $data_file/database
-   wh_tela=false
+tp_info=" "   
+wh_tela=false
   fi
    fi
    done
