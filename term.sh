@@ -7,6 +7,7 @@ init_system=true
 editor_init=false
 cont_app=1
 app_number="m"
+tp_info="nd"
 python3 style/wlc.py
 tput setaf 2
 echo "##########################" |lolcat
@@ -123,15 +124,16 @@ fi
     fi
 
   #<change_info>
-  file_blue_window=" "
-while [ $wh_tela == true ];do
+  
+  while [ "$wh_tela" == true ];do
   info_blue_window=$( dialog --stdout --title "info_window" --menu "qual a informaçao" 0 0 0 "age_usr" "$age_usr" "name_usr" "$name_usr" "fatal_mensagem" "$fatal_mensagem")
    if [ "$info_blue_window" != " " ];then
    clear
-  if [ $tp_info == "info" ];then
+  if [ "$tp_info" == "info" ];then
    echo -ne $info_blue_window=;eval echo '$'$info_blue_window
    wh_tela=false
- elif [ "$tp_info" == "change" ];then
+  fi
+ if [ "$tp_info" == "change" ];then
 echo diga o valor: |lolcat
    read change_resp
 sed -i "s/$info_blue_window=.*#end/$info_blue_window=$change_resp #end/g" $data_file/database
