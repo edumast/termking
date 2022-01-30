@@ -31,18 +31,24 @@ tput bold
   #<distribution_parts>
   
   #<reboot>
-  if [ "$command" == "reboot" ];
+  if [ "$command_pt1" == "reboot" ];
   then
+    if [ "$command_pt2" == "clear" ];then
+  clear
+    fi
     ./term.sh
   fi
   #<reboot>
   
   #<shutdown>
-  if [ "$command" == "shutdown" ];
+  if [ "$command_pt1" == "shutdown" ];
   then
     echo "turning off..."
  sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=false #end/g" ~/$local_directory/databased/database
-  exit
+ if [ "$command_pt2" == "clear" ];then 
+clear
+ fi
+   exit
   fi
   #<shutdown>
   
@@ -82,6 +88,18 @@ echo "reboot | shutdown | update | info | change info | down | app | mep | forma
 
 #<see information>
   if [ "$command_pt1" == "info" ];then
+    if [ "$command" == "info" ];then
+   wh_tela=true
+      while [ $wh_tela == true ];do 
+        info_blue_window=$( dialog --stdout --title "info_window" --menu "qual a informação desejada?" 0 0 0 "age_usr" "$age_usr" "name_usr" "$name_usr" "fatal_mensagem" "$fatal_mensagem")
+if [ "$info_blue_window" != " " ];then
+clear
+echo -ne $info_blue_window=;eval echo '$'$info_blue_window 
+wh_tela=false
+fi
+      done
+
+    fi
     if [ "$command_pt2" == "age" ];then
       echo $age_usr
     fi
@@ -183,7 +201,13 @@ chmod -R $command_pt2 softwares/software_app/*
 echo security set for $command_pt2
 fi
 
-#<#chmod> 
+#<chmod> 
+
+#<clear>
+if [ "$command" == "clear" ];then
+clear
+  fi
+#<clear>
 
 #<err1>
 
