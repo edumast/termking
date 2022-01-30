@@ -69,12 +69,26 @@ source databased/database
 if [ "$fatal_mensagem" == false ];then
    sed -i "s/fatal_mensagem=.*#end/fatal_mensagem=true #end/g" ~/$data_file/databased/database
 elif [ "$fatal_mensagem" == true ];then
-  echo "fatal error!"
-echo "your system is broken!!!"
-echo "format your system!!!"
-echo Do you want to format the system? [y/n]
-read format
-if [ "$format" == "y" ];then
-./update/update_software
+while :; do fatal_ny=$( dialog --stdout --title "fatal!!!" --menu " fatal error!
+  your system is broken!!!
+  format your system!!!
+  Do you want to format the system? " 0 0 0 "yes" " " "no" " ")
+if [ "$fatal_ny" == "yes" ];then
+clear
+  ./update/update_software
+break
+bk=true
 fi
+
+if [ "$fatal_ny" == "no" ];then
+clear
+break
+  bk=true
 fi
+if [ "$bk" == true ];then
+break
+fi
+
+done
+fi
+
