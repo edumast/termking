@@ -34,7 +34,9 @@ fi
 if [ "$download_app_name" != " " ];then
       pre_yes_install=$download_app_name
 brek1=true
-      break
+  
+clear
+break
 
 fi
 
@@ -50,7 +52,11 @@ if [ $download_app == "yes" ];then
 fi
 
 figlet load...|lolcat
-git clone https://github.com/edumast/termking
+git clone https://github.com/edumast/termking 
+if [ -e ~/$directory_download_system/termking ];then
+mv ~/$directory_download_system/termking ~/$directory_download_system/update
+dir_not_nor=true
+fi
 sed -i "s/name_usr=.*#end/name_usr=$name_first #end/g" ~/$directory_download_system/update/termking/databased/database
 sed -i "s/name=.*#end/name='$new_first' #end/g" style/wlc.py
 sed -i "s/age_usr=.*#end/age_usr=$age_first #end/g" ~/$directory_download_system/update/termking/databased/database
@@ -58,8 +64,13 @@ sed -i "s/age_usr=.*#end/age_usr=$age_first #end/g" ~/$directory_download_system
    mv ~/$directory_download_system/update/termking/* ~/$directory_download_system
 if [ $download_app == "yes" ];then
   git clone https://github.com/edumast/$download_app_name
-   mv ~/$directory_download_system/update/$directory_down ~/$directory_download_system/softwares/software_app
-fi
+ if [ $dir_not_nor == true ];then
+ mv ~/$directory_download_system/$directory_down ~/$directory_download_system/softwares/software_app
+rm -rf ~/$directory_download_system/update/termking 
+else
+  mv ~/$directory_download_system/update/$directory_down ~/$directory_download_system/softwares/software_app
+ fi
+ fi
    rm -rf termking
    echo done |lolcat
 
