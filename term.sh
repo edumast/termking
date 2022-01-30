@@ -134,8 +134,8 @@ while [ $wh_tela == true ];do
  elif [ "$tp_info" == "change" ];then
 echo diga o valor: |lolcat
    read change_resp
-  sed -i "s/$info_blue_window=.*#end/$info_blue_window=$change_resp #end/g" $data_file/database  
-  wh_tela=false
+sed -i "s/$info_blue_window=.*#end/$info_blue_window=$change_resp #end/g" $data_file/database
+   wh_tela=false
   fi
    fi
    done
