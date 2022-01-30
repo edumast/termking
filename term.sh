@@ -89,15 +89,9 @@ echo "reboot | shutdown | update | info | change info | down | app | mep | forma
 #<see information>
   if [ "$command_pt1" == "info" ];then
     if [ "$command" == "info" ];then
-   wh_tela=true
-      while [ $wh_tela == true ];do 
-        info_blue_window=$( dialog --stdout --title "info_window" --menu "qual a informação desejada?" 0 0 0 "age_usr" "$age_usr" "name_usr" "$name_usr" "fatal_mensagem" "$fatal_mensagem")
-if [ "$info_blue_window" != " " ];then
-clear
-echo -ne $info_blue_window=;eval echo '$'$info_blue_window 
-wh_tela=false
-fi
-      done
+   tp_info="info"
+      wh_tela=true
+  
 
     fi
     if [ "$command_pt2" == "age" ];then
@@ -112,7 +106,11 @@ echo $name_usr
 #<change_info>
    
  if [ "$command_pt1" == "change" ];then
-   
+if [ $command == "change" ];then 
+tp_info="change"
+  wh_tela=true
+ clear
+fi
    #<name> 
     if [ "$command_pt2" == "name" ];then
               sed -i "s/name_usr=.*#end/name_usr=$command_pt3 #end/g" $data_file/database
@@ -125,6 +123,22 @@ echo $name_usr
     fi
 
   #<change_info>
+  file_blue_window=" "
+while [ $wh_tela == true ];do
+  info_blue_window=$( dialog --stdout --title "info_window" --menu "qual a informaçao" 0 0 0 "age_usr" "$age_usr" "name_usr" "$name_usr" "fatal_mensagem" "$fatal_mensagem")
+   if [ "$info_blue_window" != " " ];then
+   clear
+  if [ $tp_info == "info" ];then
+   echo -ne $info_blue_window=;eval echo '$'$info_blue_window
+   wh_tela=false
+ elif [ "$tp_info" == "change" ];then
+echo diga o valor: |lolcat
+   read change_resp
+  sed -i "s/$info_blue_window=.*#end/$info_blue_window=$change_resp #end/g" $data_file/database  
+  wh_tela=false
+  fi
+   fi
+   done
 
 #<lok>
   if [ "$command_pt1" == "lok" ];then
