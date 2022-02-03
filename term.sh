@@ -157,10 +157,18 @@ wh_tela=false
 
 #<down>
 repo="oficial"
- if [ "$command_pt1" == "down" ];then
+
+#list
+if [ "$command" == "down list" ];then
+cat list/down_list.txt
+fi
+#list
+
+if [ "$command_pt1" == "down" ];then
    if [ "$command_pt2" == "install" ];then
   if [ $repo == "oficial" ];then
-   git clone https://github.com/edumast/$command_pt3
+   source list/down_list.sh
+    git clone https://github.com/edumast/$command_pt3
    rm -rf command_pt3/README.md
    mv $command_pt3 ~/$local_directory/softwares/software_app
   else
