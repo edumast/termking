@@ -1,7 +1,11 @@
 #bin/bash
 data_file=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 source databased/database
-echo "checking system status!"
+echo edumast,inc 2022
+echo project termking_os
+echo created by eduardo kenji
+sleep 0.5
+echo checking system status!
 sleep 0.5
 sed -i "s/name=.*#end/name='$name_usr' #end/g" style/wlc.py
 
