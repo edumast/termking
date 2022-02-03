@@ -2,5 +2,6 @@
 local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
 directory=$local
 git clone https://github.com/edumast/termking
+mv ~/$directory/termking/update/* ~/$directory/update
 mv ~/$directory/termking/* ~/$directory
 rm -rf termking
