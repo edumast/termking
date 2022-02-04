@@ -2,7 +2,4 @@ n=$((n+1))
 KEY=$n
 git add .
 git commit -m up$n
-git push
-git add .
-git commit -m "up"
 git push 
