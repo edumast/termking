@@ -1,5 +1,5 @@
-n=n+1
-KEY $n
+n=$((n+1))
+KEY=$n
 git add .
 git commit -m up$n
 git push
