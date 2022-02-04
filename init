@@ -1,0 +1,11 @@
+clear
+jp2a --color --chars=clodxkO0KXNWM img/coroa.jpeg
+tput setaf 2
+tput bold
+sleep=0
+while [ $sleep -lt 1 ];do
+echo " "
+sleep 0.5
+sleep=$(($sleep+1))
+done
+./bios_init.sh

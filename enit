@@ -1,0 +1,12 @@
+echo "1.init | 2.bios | 3.term"
+read esc
+if [ $esc == 1 ];then
+./init
+fi
+if [ $esc == 2 ];then
+   ./bios_init.sh
+    fi
+    if [ $esc == 3 ];then
+./term.sh
+  fi
+

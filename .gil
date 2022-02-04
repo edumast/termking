@@ -1,0 +1,8 @@
+if [ $n == " " ];then
+n=1
+fi
+n=n+1
+key $n
+git add .
+git commit -m up$n
+git push

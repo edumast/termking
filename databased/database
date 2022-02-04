@@ -1,2 +1,3 @@
 name_usr=edu #end
-age_usr=15 #end
+age_usr=undefined #end
+fatal_mensagem=true #end   

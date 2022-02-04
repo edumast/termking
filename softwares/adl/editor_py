@@ -1,0 +1,3 @@
+local=`echo $PWD | rev | cut -d'/' -f 1 | rev`
+git clone https://github.com/edumast/editor_py ~/$local/softwares/software_app
+ 
