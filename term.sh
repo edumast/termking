@@ -169,6 +169,7 @@ if [ "$command_pt1" == "down" ];then
   if [ $repo == "oficial" ];then
    source list/down_list.sh
     git clone https://github.com/edumast/$command_pt3
+<<<<<<< HEAD
    rm -rf $command_pt3/README.md
    if [ ! -e ~/$local_directory/softwares/software_app/$command_pt3 ];then
   rm -rf ~/$local_directory/$command_pt3
@@ -176,6 +177,11 @@ else
   mv $directory_down ~/$local_directory/softwares/software_app
 fi
    else
+=======
+   rm -rf command_pt3/README.md
+   mv $command_pt3 ~/$local_directory/softwares/software_app
+  else
+>>>>>>> 50ee937177c1d4eb2d73dcc219ee8bb061f8f189
      git clone $command_pt3
   directory_down=`echo $command_pt3 | rev | cut -d'/' -f 1 | rev`
   rm -rf $directory_down/README.md

@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 n=$((n+1))
 KEY=$n
 git add .
 git commit -m up$n
 git push
+=======
+git add .
+git commit -m "up"
+git push 
+>>>>>>> 50ee937177c1d4eb2d73dcc219ee8bb061f8f189
