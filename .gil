@@ -1,5 +1,5 @@
 source .gil_number
-n=$((n+1))
+n=$(($n+1))
 sed -i "s/number=.*#end/number=$n #end/g" .gil_number
 git add .
 git commit -m up$n
