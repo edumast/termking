@@ -170,10 +170,10 @@ if [ "$command_pt1" == "down" ];then
    source list/down_list.sh
     git clone https://github.com/edumast/$command_pt3
    rm -rf $command_pt3/README.md
-   if [ ! -e ~/$local_directory/softwares/software_app/$command_pt3 ];then
+   if [ -e ~/$local_directory/softwares/software_app/$command_pt3 ];then
   rm -rf ~/$local_directory/$command_pt3
 else
-  mv $directory_down ~/$local_directory/softwares/software_app
+  mv ~/$local_directory/$command_pt3 ~/$local_directory/softwares/software_app
 fi
    else
    rm -rf command_pt3/README.md

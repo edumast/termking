@@ -1,7 +1,5 @@
 max_app='^[0-9]+$'
 if [[ $command_pt3 =~ $max_app ]];then
-max_app=10
-if [ $command_pt3 -lt $max_app ];then
   command_pt3="app$command_pt3"
 app1="editor_py"
 app2="go"
