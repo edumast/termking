@@ -83,7 +83,7 @@ $clin_command
 
 #<commands>
   if [ "$command" == "comman" ];then
-echo "reboot | shutdown | update | info | change info | down | app | mep | format |comman "
+echo "reboot | shutdown | update | info | change info | down | app | mep | format | comman | down list | clear | corr! | safety"
   fi
 #<commands>
 
